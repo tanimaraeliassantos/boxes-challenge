@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import boxes from "./Boxes";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props) {
+  const [squares, setSquares] = useState(boxes);
+
+  const styles = {
+    backgroundColor: props.darkMode ? "#222222" : "#cccccc",
+  };
+
+  const squareElements = squares.map((square) => (
+    <div style={styles} className="box" key={square.id}></div>
+  ));
+
+  return <main>{squareElements}</main>;
 }
 
 export default App;
