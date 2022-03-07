@@ -15,7 +15,7 @@ export default function App() {
   }
 
   const squareElements = squares.map((square) => (
-    <Box key={square.id} id={square.id} on={square.on} toggle={toggle} />
+    <Box key={square.id} on={square.on} toggle={() => toggle(square.id)} />
   ));
 
   return <main>{squareElements}</main>;
